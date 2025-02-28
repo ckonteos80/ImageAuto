@@ -22,8 +22,16 @@ templateImg.onload = function() {
   ctx.textAlign = 'left';
   ctx.textBaseline = 'top';
 
-  // Draw the dynamic text on the canvas
-  ctx.fillText(dynamicText, 50, 100);
+  // Split the dynamic text into lines (assuming newlines are represented by \n)
+  const lines = dynamicText.split('\n');
+  const lineHeight = 50; // Adjust line height as needed
+
+  // Draw each line of text
+  lines.forEach((line, index) => {
+    ctx.fillText(line, 50, 100 + index * lineHeight);
+  });
+
+  // Export the canvas content as JPEG and send it to the webhook
   canvas.toBlob(function(blob) {
     // Create a FormData object and append the blob with a filename
     const formData = new FormData();
@@ -45,5 +53,4 @@ templateImg.onload = function() {
       console.error('Error sending file:', error);
     });
   }, 'image/jpeg');
-  
 };
