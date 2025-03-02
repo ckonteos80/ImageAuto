@@ -9,7 +9,7 @@ console.log('Dynamic text:', dynamicText);
 
 // Create an Image object and set its source to your template image
 const templateImg = new Image();
-templateImg.src = 'TemplatePost.png'; // Ensure this file is in your project folder
+templateImg.src = 'Stewart_1080_1350_logo.png'; // Ensure this file is in your project folder
 
 // When the image loads, draw it on the canvas and then export as JPEG
 templateImg.onload = function() {
